@@ -123,15 +123,10 @@ export const ApContextProvider = (props) => {
     fetchAllCourses();
   }, []);
 
-  const logToken = async ()=>{
-    console.log(await getToken())
-  }
-
   useEffect(() => {
     if (user) {
       fetchUserData();
       fetchUserEnrolledCourses();
-      logToken();
     }
   }, [user]);
 
@@ -151,6 +146,7 @@ export const ApContextProvider = (props) => {
     setUserData,
     getToken,
     fetchAllCourses,
+    setIsEducator,
   };
 
   return (

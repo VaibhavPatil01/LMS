@@ -70,7 +70,7 @@ const MyCourses = () => {
                     {course.enrolledStudents.length}
                   </td>
                   <td className="px-4 py-3">
-                    {new Date(course.createAt).toLocaleDateString()}
+                    {new Date(course.createdAt).toDateString()}
                   </td>
                 </tr>
               ))}

@@ -28,7 +28,7 @@ const Footer = () => {
         </div>
         </div>
       </div>
-      <p className="py-4 text-center text-xs md:text-sm text-white/60">Copyright 2025 © Vaibhav Patil. All Right Reserved.</p>
+      <p className="py-4 text-center text-xs md:text-sm text-white/60 flex justify-center">Copyright 2025 © Vaibhav Patil. All Right Reserved. &nbsp;&nbsp; <a href="https://linkedin.com/in/vaibhav-patil-3292aa303"><img src="https://bit.ly/4gTbCiP" alt="Portfolio" className="w-5"/></a> </p>
     </footer>
   );
 };

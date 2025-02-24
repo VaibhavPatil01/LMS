@@ -7,6 +7,7 @@ import humanizeDuration from "humanize-duration";
 import Footer from "../../components/student/Footer";
 import Youtube from "react-youtube";
 import { toast } from "react-toastify";
+import axios from "axios"; 
 
 const CourseDetails = () => {
   const { id } = useParams();
@@ -30,7 +31,7 @@ const CourseDetails = () => {
 
   const fetchCourseData = async () => {
     try {
-      const { data } = await axios.get(backendUrl + "/api/course/" + id);
+      const { data } = await axios.get(backendUrl + "/api/course/" +id);
 
       if (data.success) {
         setCourseData(data.courseData);
@@ -69,13 +70,14 @@ const CourseDetails = () => {
     } catch (error) {toast.error(error.message);}
   };
 
-  useEffect(() => {
+  useEffect(() => {console.log("Fetched the coursedata")
     fetchCourseData();
+    
   }, []);
 
   useEffect(() => {
     if (userData && courseData) {
-      setIsAlreadyEnrolled(userData.enrollCourses.includes(courseData._id));
+      setIsAlreadyEnrolled(userData.enrolledCourses.includes(courseData._id));
     }
   }, [userData, courseData]);
 
@@ -290,7 +292,7 @@ const CourseDetails = () => {
               </div>
             </div>
 
-            <button onClick={enrollCourse} className="md:mt-6 mt-4 w-full py-3 rounded bg-blue-600 text-white font-medium">
+            <button onClick={enrollCourse} className="md:mt-6 mt-4 w-full py-3 rounded bg-blue-600 text-white font-medium cursor-pointer">
               {isAlreadyEnrolled ? "Already Enrolled" : "Enroll Now"}
             </button>
 

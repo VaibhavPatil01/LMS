@@ -13,7 +13,7 @@ const Dashboard = () => {
     try {
       const token = await getToken();
       const { data } = await axios.get(backendUrl + "/api/educator/dashboard", {
-        headers: { Authorization: `Bearer ${token}` },
+        headers: { Authorization: `Bearer ${token}` }
       });
 
       if (data.success) {
@@ -27,7 +27,7 @@ const Dashboard = () => {
   };
 
   useEffect(() => {
-    if(isEducator){
+    if (isEducator) {
       fetchDashboardData();
     }
   }, [isEducator]);
@@ -60,7 +60,7 @@ const Dashboard = () => {
             <div>
               <p className="text-2xl font-medium text-gray-600">
                 {currency}
-                {dashboardData.totalEarnings}
+                {(dashboardData.totalEarnings).toFixed(2)}
               </p>
               <p className="text-base text-gray-500">Total Earnings</p>
             </div>
@@ -84,6 +84,7 @@ const Dashboard = () => {
               <tbody className="text-sm text-gray-500">
                 {dashboardData.enrolledStudentsData.map((item, index) => (
                   <tr key={index} className="border-b border-gray-500/20 ">
+                    <td className="px-4 py-3 text-center">{index+1}</td>
                     <td className="md:px-4 px-2 py-3 flex items-center space-x-3">
                       <img
                         src={item.student.imageUrl}

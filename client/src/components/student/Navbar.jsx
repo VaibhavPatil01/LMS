@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { useClerk, UserButton, useUser } from "@clerk/clerk-react";
 import { AppContext } from "../../context/AppContext";
 import { toast } from "react-toastify";
+import axios from "axios";
 
 const Navbar = () => {
   const { navigate, isEducator, backendUrl, setIsEducator, getToken } = useContext(AppContext);
@@ -21,7 +22,7 @@ const Navbar = () => {
       }
 
       const token = await getToken()
-      const {data} = await axios.get(backendUrl + '/api/educator/update-role', {headers:{Authorization:`Bearer${token}`}})
+      const {data} = await axios.get(backendUrl + '/api/educator/update-role', {headers:{Authorization:`Bearer ${token}`}})
 
       if(data.success){
         setIsEducator(true)
@@ -68,7 +69,7 @@ const Navbar = () => {
             onClick={() => {
               openSignIn();
             }}
-            className="bg-blue-600 text-white px-5 py-2 rounded-full"
+            className="bg-blue-600 text-white px-5 py-2 rounded-full cursor-pointer"
           >
             Create Account
           </button>
