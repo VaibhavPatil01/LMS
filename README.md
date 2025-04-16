@@ -1,4 +1,4 @@
-# LMS (Learning Management System)
+# 🎓 LMS (Learning Management System)
 
 Welcome to the Learning Management System (LMS) project! This is a full-stack web application built using the MERN stack (MongoDB, Express, React, Node.js) that allows educators to publish courses and students to enroll and watch them. The platform integrates **Clerk** for user authentication and **Stripe** for secure payments.
 
